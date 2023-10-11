@@ -1,13 +1,14 @@
 package com.example;
 
-/**
- * Hello world!
- *
- */
+import com.example.data_access.StudentDao;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(ConfigFileName.class);
+        StudentDao studentDao = context.getBean(StudentDao.class);
+
     }
 }
