@@ -10,33 +10,34 @@ import java.util.List;
 public class StudentDaoListImpl implements StudentDao
 {
    private List<Student> students;
-    public StudentDaoListImpl() {
-        System.out.println("Student list initialized and ready to use ...");
-        this.students = new ArrayList<>();
+    public StudentDaoListImpl(List<Student> students) {
+        this.students = students;
     }
 
-    @Override
     public Student save(Student student) {
         students.add(student);
         return student;
+
     }
 
-    @Override
     public Student find(int id) {
-        return students.stream()
-                .filter(student -> student.getId()==id)
-                .findFirst().orElse(null);
+        for (Student s:students
+        ) {
+            if(s.getId()==id)
+                return s;}
+        return null;
     }
 
-
-
-    @Override
     public List<Student> findAll() {
-        return students;
+        List<Student> allStudents=new ArrayList<>();
+        for (Student s:allStudents) {
+            System.out.println(s.toString());
+        }
+        return allStudents;
     }
-    @Override
-    public void delete(int id) {
-        students.remove(find(id));
 
+    public void delete(int id) {
+        students.removeIf(student->student.getId()==id);
     }
+
 }
