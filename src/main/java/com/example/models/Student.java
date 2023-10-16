@@ -5,6 +5,10 @@ public class Student {
     private String name;
     private static int nextStudentID = 1;
 
+    public Student() {
+
+    }
+
     // Methods
 
     private int generateUniqueID() {

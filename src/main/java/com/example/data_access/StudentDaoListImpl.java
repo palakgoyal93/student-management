@@ -36,8 +36,9 @@ public class StudentDaoListImpl implements StudentDao
         return allStudents;
     }
 
-    public void delete(int id) {
+    public Student delete(int id) {
         students.removeIf(student->student.getId()==id);
+        return null;
     }
 
 }
